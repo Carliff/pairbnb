@@ -12,6 +12,8 @@
 	    <a href="/users/<%= current_user.id %>">User Profile</a>
 	  </p>
 
+	  <%= link_to "Listings", listings_path, class: "btn btn-primary" %>
+
   <% else %>
 
   	<p class="lead">
@@ -21,6 +23,8 @@
 	  <p class="lead">
 	    <a class="btn btn-primary btn-lg" href="http://localhost:3000/sign_up" role="button">Sign up</a>
 	  </p>
+
+	  <%= link_to "Listings", listings_path, class: "btn btn-primary btn-lg" %>
 	<% end %>
 </div>
 
