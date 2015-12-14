@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+# Add bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
 # Add figaro gem (keeps configuration and sensitive info out of Git)
 gem "figaro"
 #Add OmniAuth
