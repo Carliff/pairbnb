@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :listings
   root 'home#index'
+  get 'dashboard' => 'pages#dashboard'
+  get 'View/Manage Listings' => 'listings#show'
 
   resources :users, only: [:new, :show, :edit, :update]
 

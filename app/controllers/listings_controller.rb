@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   # Ensure the user is logged in.
-  before_action :authorize, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authorize, only: [:new, :show, :edit, :create, :update, :destroy]
 
   # GET /listings
   # GET /listings.json
