@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Add dotenv-rails
+gem 'dotenv-rails', groups: [:development]
 # Add PaperClip
 gem 'paperclip'
 # Add CanCan
