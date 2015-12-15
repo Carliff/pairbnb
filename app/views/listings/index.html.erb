@@ -1,5 +1,11 @@
 <div class="row">
 
+	<%= form_tag listings_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+
+    <%= submit_tag "Where do you want to go?", class: "btn btn-primary" %>
+  <% end %><br>
+
  <%= render @listings %>
  
 </div>

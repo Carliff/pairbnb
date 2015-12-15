@@ -3,6 +3,7 @@ class Listing < ActiveRecord::Base
 	has_attached_file :image 
 	has_attached_file :resource
 
+
 	validates_attachment_content_type :image, 
 		content_type:  /^image\/(png|gif|jpeg)/,
 		message: "Only images allowed"
@@ -12,4 +13,15 @@ class Listing < ActiveRecord::Base
 
 	validates :image, attachment_presence: true 
 	# validates :resource, attachment_presence: true 
+
+
+
+	 def self.search(search)
+    if search
+    	byebug
+        @listings = Listing.where(["name LIKE ?","%#{params[:search]}%"])
+    else
+        all
+    end
+  end
 end
