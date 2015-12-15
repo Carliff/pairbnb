@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+
+
+# Add Amazon gem
+gem 'aws-sdk', '< 2.0 '
 # Add dotenv-rails
 gem 'dotenv-rails', groups: [:development]
 # Add PaperClip

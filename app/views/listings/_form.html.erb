@@ -25,8 +25,16 @@
   </div>
   <div class="field text-center">
     <%= f.label :price %><br>
-    <%= f.number_field :price, required: true %>
+    <%= f.number_field :price, required: true %><br>
   </div>
+
+  <div class="image">
+    <div align="center">
+      <%= f.label "Image" %><br>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
   <div class="checkbox text-center">
       <b>Availability</b><br>
       <%= f.check_box :availability, required: false, label: false %>
