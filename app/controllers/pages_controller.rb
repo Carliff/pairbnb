@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   	if current_user
   		redirect_to listings_path
   	end
+  	@listings = Listing.last(4)
   end
   
   def dashboard
