@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Add CanCan
+gem 'cancan'
 # Add Simple Form
 gem 'simple_form'
 # Add bootstrap
