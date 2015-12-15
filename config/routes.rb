@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :listings
+  resources :searches
   root 'home#index'
   get 'dashboard' => 'pages#dashboard'
   get 'View/Manage Listings' => 'listings#show'

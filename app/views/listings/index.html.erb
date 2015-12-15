@@ -4,7 +4,9 @@
     <%= text_field_tag :search, params[:search] %>
 
     <%= submit_tag "Where do you want to go?", class: "btn btn-primary" %>
-  <% end %><br>
+  <% end %>
+
+  <%= link_to "Advanced Search", new_search_path, class: "btn btn-primary" %><br>
 
  <%= render @listings %>
  

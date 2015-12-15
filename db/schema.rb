@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215071027) do
+ActiveRecord::Schema.define(version: 20151215105746) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "provider"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20151215071027) do
     t.string   "resource_content_type"
     t.integer  "resource_file_size"
     t.datetime "resource_updated_at"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "keywords"
+    t.string   "category"
+    t.decimal  "min_price"
+    t.decimal  "max_price"
+    t.integer  "guest"
+    t.boolean  "smoking"
+    t.boolean  "pets"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
