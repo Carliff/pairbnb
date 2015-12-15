@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+# Add Simple Form
+gem 'simple_form'
 # Add bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 # Add figaro gem (keeps configuration and sensitive info out of Git)
