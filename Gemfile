@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Add PaperClip
+gem 'paperclip'
 # Add CanCan
 gem 'cancan'
 # Add Simple Form
