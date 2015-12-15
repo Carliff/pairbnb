@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field text-center">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= f.label :host %><br>
-    <%= f.text_field :host %>
+    <%= f.text_field :host, required: true %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, required: true %>
   </div>
-  <div class="field">
+  <div class="field text-center">
     <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, required: true %>
   </div>
-  <div class="field">
-    <%= f.label :availability %><br>
-    <%= f.check_box :availability %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="checkbox text-center">
+      <b>Availability</b><br>
+      <%= f.check_box :availability, required: false, label: false %>
+  </div><br>  
+  <div class="actions text-center">
+    <%= f.submit class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
