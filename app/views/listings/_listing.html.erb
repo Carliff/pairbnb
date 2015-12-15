@@ -1,0 +1,12 @@
+<div class="col-md-3">
+  <div class="thumbnail">
+  	<%= link_to listing_path(listing) do %>
+    	<%= image_tag "listing.jpg", class: "img-responsive" %>
+    <% end %>
+  </div>
+
+  <div class="caption">
+  	<p><strong><%= link_to listing.name, listing_path(listing) %></strong></p>
+      <p><%= listing.price.to_f / 100 %></p>
+  </div>
+</div>

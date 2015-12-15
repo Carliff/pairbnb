@@ -25,7 +25,8 @@
         </ul>
       </ul>
 
-
+      <%= link_to "Listings", listings_path, class: "btn btn-primary" %>
+      <%= link_to "New Listing", new_listing_path, class: "btn btn-primary" %>
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -37,24 +38,20 @@
     
 
       <ul class="nav navbar-nav navbar-right">
-        <%= link_to "Listings", listings_path, class: "btn btn-primary" %>
         
-        <% if signed_in? %>
+        
+        <% if current_user %>
           <p class="navbar-text">Signed in as <%= current_user.email %></p>
         <% end %>
 
-        <li><a> <% if signed_in? %>
-            
-            <%= button_to 'Sign out', sign_out_path, class: "btn btn-primary", method: :delete %>
-          
-        <% else %>
-    
-            <%= button_to 'Sign in', sign_in_path, class: "btn btn-primary", method: :get %>
-          
+        <li><a> <% if current_user %>           
+            <%= button_to 'Sign out', sign_out_path, class: "btn btn-primary", method: :delete %>          
+        <% else %>    
+            <%= button_to 'Sign in', sign_in_path, class: "btn btn-primary", method: :get %>         
         <% end %></a></li>
         
 
-        <% if signed_in? %>
+        <% if current_user %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Menu<span class="caret"></span></a>
             <ul class="dropdown-menu">
