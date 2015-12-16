@@ -11,6 +11,7 @@ class Search < ActiveRecord::Base
 		listings = listings.where(["guest LIKE ?",guest]) if guest.present?
 		listings = listings.where(["pets", true]) if pets.present?
 		listings = listings.where(["smoking", true]) if smoking.present?
+		listings = listings.where(["city LIKE ?","%#{city}%"]) if city.present?
 
 		return listings
 	end
