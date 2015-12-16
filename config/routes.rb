@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'dashboard' => 'pages#dashboard'
   get 'View/Manage Listings' => 'listings#show'
 
-  resources :users, only: [:new, :show, :edit, :update]
+  resources :users, only: [:new, :show, :edit, :update] do
+  	resources :listings
+  end
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   

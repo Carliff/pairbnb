@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 
-
 # Add Amazon gem
 gem 'aws-sdk', '< 2.0 '
 # Add dotenv-rails
@@ -66,3 +65,9 @@ group :development do
   gem 'spring'
 end
 
+group :development do
+		# Add gem 'binding_of_caller', '~> 0.7.2'
+	gem 'binding_of_caller', '~> 0.7.2'
+	# Add Better Errors
+	gem 'better_errors', '~> 2.1', '>= 2.1.1'
+end

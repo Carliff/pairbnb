@@ -56,7 +56,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Menu<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Dashboard", dashboard_path %></li>
-              <li><a href="/listings/<%= current_user.id %>">View/Manage Listings</a></li>
               <li><a href="/users/<%= current_user.id %>">User Profile</a></li>
               <li><a href="/users/<%= current_user.id %>/edit">Edit Profile</a></li>
               <li><a href="/users/<%= current_user.id %>/password/edit">Edit Password</a></li>
