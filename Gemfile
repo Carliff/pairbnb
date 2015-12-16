@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Add Stripe
+gem 'stripe'
 # Add Amazon gem
 gem 'aws-sdk', '< 2.0 '
 # Add dotenv-rails
