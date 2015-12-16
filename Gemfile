@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Add gem 'aasm'
+gem 'aasm'
 # Add Friendly id
 gem 'friendly_id'
 # Add Stripe

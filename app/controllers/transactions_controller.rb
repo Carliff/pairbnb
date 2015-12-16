@@ -1,22 +1,18 @@
 class TransactionsController< ApplicationController
 	def create
 		listing = Listing.find_by!(slug: params[:slug])
-		token = params[:stripeToken]
+		sale = listing.sales.create(
+			amount: listing.price, 
+			buyer_email: current_user.email, 
+			seller_email: listing.user.email, 
+			stripe_token: params[:stripeToken])
+		sale.process!
+		byebug
+		if sale.finished?
 
-		begin
-				
-				charge = Stripe::Charge.create(
-					amount: listing.price,
-					currency: "usd",
-					card: token,
-					description: current_user.email)
-
-				@sale = listing.sales.create!(buyer_email: current_user.email)
-				redirect_to pickup_url(guid: @sale.guid)
-			
-			rescue Stripe::CardError => e 
-				@error = e 
-				redirect_to listing_path(listing), notice: @error 
+			redirect_to pickup_url(guid: sale.guid)
+		else
+			redirect_to listing_path(listing), notice: @error 
 		end
 	end
 
