@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Add Friendly id
+gem 'friendly_id'
 # Add Stripe
 gem 'stripe'
 # Add Amazon gem
