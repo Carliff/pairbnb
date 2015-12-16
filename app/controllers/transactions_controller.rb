@@ -7,9 +7,8 @@ class TransactionsController< ApplicationController
 			seller_email: listing.user.email, 
 			stripe_token: params[:stripeToken])
 		sale.process!
-		byebug
-		if sale.finished?
 
+		if sale.finished?
 			redirect_to pickup_url(guid: sale.guid)
 		else
 			redirect_to listing_path(listing), notice: @error 

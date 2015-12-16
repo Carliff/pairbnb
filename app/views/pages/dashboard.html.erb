@@ -5,35 +5,27 @@
 	<div class="col-md-4">
 		<h3 class="text-center">
 		    Listings <%= link_to "New Listing", new_listing_path, class: "btn btn-primary btn-sm" %>
-		 </h3>  
-		 <table class="table table-condensed"> 
-			<thead> 
-				<tr> 
-					<th>#</th> 
-					<th>Id</th> 
-					<th>Name</th> 
-					<th>Available</th> 
-					<th></th>
-				</tr> 
-			</thead> 
-			<tbody> 
-				<% @listings.each do |listing| %> 
-				<tr> 
-					<td><%= listing.id %></td>
-					<td><%= link_to listing.name, listing_path(listing) %></td> 
-					<td><%= listing.availability %></td> 
-					<td><%= link_to "edit", edit_listing_path(listing) %></td> 
-				</tr> 
-				<% end %>
-		 </tbody> 
-	 </table>
+		</h3>  
+
+		<%= render 'listings' %>
+
 	</div>
 
 	<div class="col-md-4">
 		<h3 class="text-center">Your Trips</h3>
+		<% if @sale.nil? %>
+			<p> Error! </p>
+		<% else %>
+			<%= render'purchased', :sale => @sale %>
+		<% end %>
 	</div>
 
 	<div class="col-md-4">
 		<h3 class="text-center">Your Reservations</h3>
+			<% if @sale.nil? %>
+				<p> Error! </p>
+			<% else %>
+				<%= render 'sales' %>
+			<% end %>
 	</div>
 </div>
