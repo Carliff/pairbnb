@@ -1,7 +1,14 @@
 class Listing < ActiveRecord::Base
 	belongs_to :user
+	has_many :sales
+
+
 	has_attached_file :image 
 	has_attached_file :resource
+
+
+	validates_numericality_of :price, 
+		greather_then: 49, message: "Must be at least 50 cents"
 
 
 	validates_attachment_content_type :image, 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216040330) do
+ActiveRecord::Schema.define(version: 20151216070351) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "provider"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20151216040330) do
     t.boolean  "smoking"
     t.boolean  "pets"
     t.string   "city"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.string   "buyer_email"
+    t.string   "seller_email"
+    t.integer  "amount"
+    t.string   "guid"
+    t.integer  "listing_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "searches", force: :cascade do |t|
