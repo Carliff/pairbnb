@@ -4,21 +4,19 @@ class TransactionsController< ApplicationController
 		token = params[:stripeToken]
 
 		begin
+				
+				charge = Stripe::Charge.create(
+					amount: listing.price,
+					currency: "usd",
+					card: token,
+					description: current_user.email)
+
+				@sale = listing.sales.create!(buyer_email: current_user.email)
+				redirect_to pickup_url(guid: @sale.guid)
 			
-			charge = Stripe::Charge.create(
-				amount: listing.price,
-				currency: "usd",
-				card: token,
-				description: current_user.email)
-
-			@sale = listing.sales.create!(buyer_email: current_user.email)
-			redirect_to pickup_url(guid: @sale.guid)
-		
-		rescue Stripe::CardError => e 
-			@error = e 
-			redirect_to listing_path(listing), notice: @error
-		end 
-
+			rescue Stripe::CardError => e 
+				@error = e 
+				redirect_to listing_path(listing), notice: @error 
 		end
 	end
 
