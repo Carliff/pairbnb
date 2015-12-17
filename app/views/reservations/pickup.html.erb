@@ -1,0 +1,15 @@
+<div class="row text-center">
+	<br>
+	<h1> Awesome! Dates are available! </h1> 
+	<br>
+	<h3>Thanks for your booking inquiry for <i>" <%= @reservation.listing.slug %> "</i></h3><br>
+
+	<h3>Click the button below to make payment</h3>
+
+</div>
+
+<br>
+
+<div class="row text-center">
+	<%= link_to "Dashboard", dashboard_path, class: "btn btn-primary btn-lg" %>
+</div>

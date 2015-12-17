@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216082604) do
+ActiveRecord::Schema.define(version: 20151217031234) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "provider"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20151216082604) do
 
   add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
 
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.integer  "sale_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "guid"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.string   "buyer_email"
     t.string   "seller_email"
@@ -72,12 +83,13 @@ ActiveRecord::Schema.define(version: 20151216082604) do
     t.integer  "listing_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "state"
     t.string   "stripe_id"
     t.string   "stripe_token"
     t.text     "error"
+    t.integer  "reservation_id"
   end
 
   create_table "searches", force: :cascade do |t|

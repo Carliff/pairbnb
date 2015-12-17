@@ -1,0 +1,17 @@
+<%= form_for :reservation, :url => listing_reservations_path(@listing.id), html: {class: "pure-form"} do |f| %>
+
+	<div class="field">
+	 <%= f.label :start_date %><br>
+	 <%= f.date_select :start_date %>
+	</div>
+	 
+	<div class="field">
+	 <%= f.label :end_date %><br>
+	 <%= f.date_select :end_date %>
+	</div><br>
+
+	<div class="actions">
+	 <%= f.submit 'Check Availability', class: "btn btn-primary btn-lg" %>
+	</div><br>
+
+<% end %>
