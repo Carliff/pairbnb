@@ -13,19 +13,11 @@
 
 	<div class="col-md-4">
 		<h3 class="text-center">Your Trips</h3>
-		<% if @sale.nil? %>
-			<p> Error! </p>
-		<% else %>
-			<%= render'purchased', :sale => @sale %>
-		<% end %>
+			<%= render partial: 'purchased', :locals => {purchased: @purchased } %>
 	</div>
 
 	<div class="col-md-4">
 		<h3 class="text-center">Your Reservations</h3>
-			<% if @sale.nil? %>
-				<p> Error! </p>
-			<% else %>
-				<%= render 'sales', :sale => @sale %>
-			<% end %>
+				<%= render partial: 'sales', :locals => {sales: @sales } %>
 	</div>
 </div>
