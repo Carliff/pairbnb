@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
-  resources :reservations
+  # resources :reservations
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   

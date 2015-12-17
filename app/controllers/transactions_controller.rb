@@ -4,7 +4,8 @@ class TransactionsController< ApplicationController
 		sale = listing.sales.create(
 			amount: listing.price, 
 			buyer_email: current_user.email, 
-			seller_email: listing.user.email, 
+			seller_email: listing.user.email,
+			reservation_id: params[:reservation_id], 
 			stripe_token: params[:stripeToken])
 		sale.process!
 

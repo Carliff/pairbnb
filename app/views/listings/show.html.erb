@@ -6,25 +6,29 @@
     </div>
 
     <div class="col-md-6">
-      <h3><%= @listing.name %> by <%= @listing.host %></h3>
-      <p class="justify"><%= @listing.description %></p>
-      <h4 class="text-right">$<%= @listing.price.to_f / 1000 %></h4>
+      <h3><%= @listing.name %> <i> by <%= @listing.user.first_name %></i></h3>
+      <p class="justify"> Derscription: <%= @listing.description %></p>
+      <h4 class="text">Price: RM<%= @listing.price.to_f / 100 %> per night</h4>
 
         <% if current_user %>
-          
-          <% if @reservation.nil? %>
-            <p> Error @reservations = nil! </p>
+
+          <% if current_user.id != @listing.user.id %>
+            
+            <% if @reservation.nil? %>
+              <p> Error @reservations = nil! </p>
+            <% else %>
+              <%= render partial: 'date', :locals => {reservation: @reservation} %>
+            <% end %>
+
           <% else %>
-            <%= render partial: 'date', :locals => {reservation: @reservation} %>
+            <%= button_to "edit", edit_listing_path(@listing) %>
           <% end %>
 
         <% else %>
           <p>Please login first to check availablityt</p>
+          
         <% end %>
-
-
     </div>
-
   </div>
 </div>
 

@@ -30,7 +30,6 @@ class Listing < ActiveRecord::Base
 
 	 def self.search(search)
     if search
-    	byebug
         @listings = Listing.where(["name LIKE ?","%#{params[:search]}%"])
     else
         all
