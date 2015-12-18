@@ -1,9 +1,10 @@
 class Sale < ActiveRecord::Base
 	
 	before_create :populate_guid
-
+	
+	belongs_to :user
 	belongs_to :listing
-	belongs_to :reservation
+	has_one :reservation
 
 	include AASM
     

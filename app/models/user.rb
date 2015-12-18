@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
   has_many :listings
-  has_many :sales, :through => :reservations
+  has_many :sales
   has_many :reservations
 
 

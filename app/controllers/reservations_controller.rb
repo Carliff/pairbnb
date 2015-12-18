@@ -3,20 +3,22 @@ class ReservationsController< ApplicationController
 	def create
 
 		@listing = Listing.find(params[:listing_id])
-		@reservation = @listing.reservations.new(
-			user_id: current_user.id,
-			listing_id: @listing.id,
-			start_date: params[:start_date],
-			end_date: params[:end_date])
-
+		# @reservation = @listing.reservations.new(
+		# 	user_id: current_user.id,
+		# 	listing_id: @listing.id,
+		# 	start_date: params[:start_date],
+		# 	end_date: params[:end_date])
+		@reservation = @listing.reservations.new(reservation_params)
+		@reservation.user_id = current_user.id
 			# Date authorization method here!
-
-			@reservation.save
+		# byebug
+		# @reservation.save
 
 		respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @listing, notice: 'Awesome, those dates are available.' }
-        format.json { render :show, status: :created, location: @listing }
+        format.html { redirect_to pickup_url(guid: @reservation.guid), notice: 'Awesome, those dates are available.' }
+        format.json { render :show, status: :created, location: pickup_url(guid: @reservation.guid) }
+
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }

@@ -4,7 +4,7 @@ class Listing < ActiveRecord::Base
 	friendly_id :name, use: :slugged 
 
 	belongs_to :user
-	has_many :sales, :through => :reservations
+	has_many :sales
 	has_many :reservations
 
 
