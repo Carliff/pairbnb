@@ -1,27 +1,27 @@
 class ReservationsController< ApplicationController
 
-	def create
+	# protect_from_forgery
+	def new
+		@listing = Listing.friendly.find(params[:listing_id])
+	end
 
+	def create
+		# byebug
 		@listing = Listing.find(params[:listing_id])
-		# @reservation = @listing.reservations.new(
-		# 	user_id: current_user.id,
-		# 	listing_id: @listing.id,
-		# 	start_date: params[:start_date],
-		# 	end_date: params[:end_date])
 		@reservation = @listing.reservations.new(reservation_params)
 		@reservation.user_id = current_user.id
-			# Date authorization method here!
-		# byebug
 		# @reservation.save
 
 		respond_to do |format|
       if @reservation.save
-        format.html { redirect_to pickup_url(guid: @reservation.guid), notice: 'Awesome, those dates are available.' }
-        format.json { render :show, status: :created, location: pickup_url(guid: @reservation.guid) }
+        
+        # byebug
+        format.html { redirect_to new_listing_reservation_path(@listing), notice: 'Awesome, dates are available.' }
+        format.json { render :show, status: :created, location: @listing }
 
       else
-        format.html { render :new }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        format.html { redirect_to @listing, notice: 'Error, date not available.' }
+        format.json { render :show, status: :created, location: @listing }
       end
     end
 
@@ -45,14 +45,14 @@ class ReservationsController< ApplicationController
       @listing = Listing.friendly.find(params[:id])
     end
 
-	def pickup
-		@reservation = Reservation.find_by!(guid: params[:guid])
-		@listing = @reservation.listing
-	end
+		def pickup
+			@reservation = Reservation.find_by!(guid: params[:guid])
+			@listing = @reservation.listing
+		end
 
-	# Never trust parameters from the scary internet, only allow the white list through.
-  def reservation_params
-    params.require(:reservation).permit(:user_id, :listing_id, :start_date, :end_date)
-  end
+		# Never trust parameters from the scary internet, only allow the white list through.
+	  def reservation_params
+	    params.require(:reservation).permit(:id, :user_id, :listing_id, :start_date, :end_date)
+	  end
 
 end

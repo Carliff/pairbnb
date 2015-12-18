@@ -12,17 +12,18 @@
 
         <% if current_user %>
 
-          <% if current_user.id != @listing.user.id %>
-            
-            <% if @reservation.nil? %>
-              <p> Error @reservations = nil! </p>
-            <% else %>
-              <%= render partial: 'date', :locals => {reservation: @reservation} %>
-            <% end %>
+            <% if current_user.id != @listing.user.id %>
+              
+              <% if @reservation.nil? %>
+                <p> Error @reservations = nil! </p>
+              <% else %>
+                <%= render partial: 'date', :locals => {reservation: @reservation} %>
+              <% end %>
 
-          <% else %>
-            <%= button_to "edit", edit_listing_path(@listing) %>
-          <% end %>
+            <% else %>
+              <%= button_to "edit", edit_listing_path(@listing) %>
+            <% end %>
+          
 
         <% else %>
           <p>Please login first to check availablityt</p>

@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-# Add Validates Overlap
-gem 'validates_overlap'
+
 # Add gem 'aasm'
 gem 'aasm'
 # Add Friendly id

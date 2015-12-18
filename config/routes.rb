@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post '/booking/:slug', to: 'reservations#create', as: :booking 
   get '/confirm/:guid', to: 'reservations#confirm', as: :confirm
 
+  post '/listings/:slug/edit', to: 'listings#edit'
+
 
   resources :users, only: [:new, :show, :edit, :update] do
   	resources :listings

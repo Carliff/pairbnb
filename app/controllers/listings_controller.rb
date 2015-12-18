@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :update, :destroy]
+  before_action :set_sluglisting, only: [:edit]
   # Ensure the user is logged in.
   before_action :authorize, only: [:new, :show, :edit, :create, :update, :destroy]
 
@@ -27,6 +28,7 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
     authorize! :manage, @listing
+    
   end
 
   # POST /listings
@@ -74,6 +76,10 @@ class ListingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.friendly.find(params[:id])
+    end
+
+    def set_sluglisting
+      @listing = Listing.friendly.find_by(slug: params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
