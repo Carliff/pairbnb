@@ -2,7 +2,8 @@
 			<thead> 
 				<tr>   
 					<th>Listing Name</th> 
-					<th>Date</th>
+					<th>Dates</th>
+					<th>City</th>
 					
 				</tr> 
 			</thead> 
@@ -10,7 +11,9 @@
 				<% purchased.each do |purchase| %> 
 				<tr> 
 					<td><%= link_to purchase.listing.name, pickup_path(purchase.guid) %></td> 
-					<td><%= time_ago_in_words(purchase.created_at) %> ago 
+					<td><%=  %> </td>
+					<td><%= purchase.listing.city %> </td>
+					
 				</tr> 
 				<% end %>
 		 </tbody> 

@@ -1,8 +1,8 @@
 <table class="table table-condensed"> 
 			<thead> 
 				<tr>   
-					<th>Name</th> 
-					<th>Date</th> 
+					<th>Listing Name</th> 
+					<th>Dates</th> 
 					<th>Buyer</th> 
 				</tr> 
 			</thead> 
@@ -10,7 +10,7 @@
 				<% @sales.each do |sale| %> 
 				<tr> 
 					<td><%= link_to sale.listing.name, pickup_path(sale.guid) %></td> 
-					<td><%= time_ago_in_words(sale.created_at) %> ago</td> 
+					<td><%=  %></td> 
 					<td><%= sale.buyer_email %></td> 
 				</tr> 
 				<% end %>
