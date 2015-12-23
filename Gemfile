@@ -10,7 +10,7 @@ gem 'stripe'
 # Add Amazon gem
 gem 'aws-sdk', '< 2.0 '
 # Add dotenv-rails
-gem 'dotenv-rails', groups: [:development]
+gem 'dotenv-rails', :groups => [:development, :test]
 # Add PaperClip
 gem 'paperclip'
 # Add CanCan

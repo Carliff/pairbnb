@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  after_create :send_welcome_email
 
   has_many :authentications, :dependent => :destroy
   has_many :listings
@@ -24,6 +25,11 @@ class User < ActiveRecord::Base
   
   def password_optional?
     true
+  end
+
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_later
   end
 
 end
