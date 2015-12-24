@@ -4,31 +4,37 @@
   <h1 class="display-3">PairBnB</h1>
   <p class="lead">Rent unique places to stay from local hosts in 190+ countries..</p>
   <hr class="m-y-2">
-  	<p class="lead">
-	    <a class="btn btn-primary btn-lg" href="http://localhost:3000/sign_up" role="button">How it Works</a>
-	  </p>
   
-  <% if current_user %>
+	<% if current_user %>
 	  
-	  <p class="lead">
-	    <a href="/users/<%= current_user.id %>">User Profile</a>
-	  </p>
+		<p class="lead">
+		 <a href="/users/<%= current_user.id %>">Welcome back <%= current_user.email %></a>
+		</p><br>
+
+		<div>
+			<form class="pure-form">
+				<%= form_tag listings_path, :method => 'get' do %>
+			    <%= text_field_tag :search, params[:search] %>
+			    <%= submit_tag "Where do you want to go?", class: "pure-button pure-button-primary" %>
+			  	<% end %>
+		  	</form>
+		</div>
 
 
-  <% else %>
+	<% else %>
 
-  	<p class="lead">
-	    <a class="btn btn-secondary btn-lg" href="http://localhost:3000/sign_in" role="button">Sign in</a>
-	  </p>
-
-	  <p class="lead">
+	  	<p class="lead">
 	    <a class="btn btn-primary btn-lg" href="http://localhost:3000/sign_up" role="button">Sign up</a>
-	  </p>
+	  	</p>
 
-	  <%= link_to "Listings", listings_path, class: "btn btn-primary btn-lg" %>
+	  	<p class="lead">
+			<a class="btn btn-secondary btn-lg" href="http://localhost:3000/sign_in" role="button">Sign in</a>
+		</p>
+
 	<% end %>
 </div>
 
-<%= render @listings %>
-
+<div>
+	<%= render @listings %>
+</div>
 
