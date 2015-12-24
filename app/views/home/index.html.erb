@@ -14,12 +14,11 @@
 		<div>
 			<form class="pure-form">
 				<%= form_tag listings_path, :method => 'get' do %>
-			    <%= text_field_tag :search, params[:search] %>
-			    <%= submit_tag "Where do you want to go?", class: "pure-button pure-button-primary" %>
+			    <%= text_field_tag :search, params[:search], class: "pure-input-rounded pure-input-1-4", placeholder: "Where do you want to go?" %>
+			    <%= submit_tag "Search", class: "pure-button pure-button-primary" %>
 			  	<% end %>
 		  	</form>
 		</div>
-
 
 	<% else %>
 
