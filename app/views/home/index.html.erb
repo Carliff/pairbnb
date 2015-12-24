@@ -14,7 +14,6 @@
 	    <a href="/users/<%= current_user.id %>">User Profile</a>
 	  </p>
 
-	  <%= link_to "Listings", listings_path, class: "btn btn-primary" %>
 
   <% else %>
 
@@ -30,5 +29,6 @@
 	<% end %>
 </div>
 
+<%= render @listings %>
 
 

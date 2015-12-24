@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if params[:search]
-      @listings = Listing.where(["name LIKE ?","%#{params[:search]}%"])
+      @listings = Listing.where(["city LIKE ?","%#{params[:search]}%"])
     else
       @listings = Listing.all 
     end
