@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Add will_paginate
+gem 'will_paginate'
 # Add gem 'aasm'
 gem 'aasm'
 # Add Friendly id
