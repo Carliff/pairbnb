@@ -1,0 +1,11 @@
+<h1>User#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<ul>
+	<b>First Name:</b> <%= current_user.first_name  %><br>
+	<b>Email:</b> <%= current_user.email  %><br>
+</ul>
+
+<%= button_to 'Edit Profile', edit_user_path(current_user), method: :get %>
+<%= button_to 'Edit Password', edit_user_password_path(current_user), method: :get %>
+

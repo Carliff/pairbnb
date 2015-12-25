@@ -1,6 +1,33 @@
 source 'https://rubygems.org'
 
-
+# Add will_paginate
+gem 'will_paginate'
+# Add gem 'aasm'
+gem 'aasm'
+# Add Friendly id
+gem 'friendly_id'
+# Add Stripe
+gem 'stripe'
+# Add Amazon gem
+gem 'aws-sdk', '< 2.0 '
+# Add dotenv-rails
+gem 'dotenv-rails', :groups => [:development, :test]
+# Add PaperClip
+gem 'paperclip'
+# Add CanCan
+gem 'cancan'
+# Add Simple Form
+gem 'simple_form'
+# Add bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+# Add figaro gem (keeps configuration and sensitive info out of Git)
+gem "figaro"
+#Add OmniAuth
+gem 'omniauth'
+# Add OmniAuth Facebook 
+gem 'omniauth-facebook'
+# Add Clearence (Rails Authentication with email & password) gem
+gem 'clearance'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
@@ -45,3 +72,9 @@ group :development do
   gem 'spring'
 end
 
+group :development do
+		# Add gem 'binding_of_caller', '~> 0.7.2'
+	gem 'binding_of_caller', '~> 0.7.2'
+	# Add Better Errors
+	gem 'better_errors', '~> 2.1', '>= 2.1.1'
+end

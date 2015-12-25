@@ -1,0 +1,20 @@
+<table class="table table-condensed"> 
+			<thead> 
+				<tr>   
+					<th>Listing Name</th> 
+					<th>Dates</th>
+					<th>City</th>
+					
+				</tr> 
+			</thead> 
+			<tbody>
+				<% purchased.each do |purchase| %> 
+				<tr> 
+					<td><%= link_to purchase.listing.name, pickup_path(purchase.guid) %></td> 
+					<td><%=  %> </td>
+					<td><%= purchase.listing.city %> </td>
+					
+				</tr> 
+				<% end %>
+		 </tbody> 
+	 </table>

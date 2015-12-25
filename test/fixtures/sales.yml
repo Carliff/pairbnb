@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer_email: MyString
+  seller_email: MyString
+  amount: 1
+  guid: MyString
+  listing_id: 1
+  start_date: 2015-12-16
+  end_date: 2015-12-16
+
+two:
+  buyer_email: MyString
+  seller_email: MyString
+  amount: 1
+  guid: MyString
+  listing_id: 1
+  start_date: 2015-12-16
+  end_date: 2015-12-16

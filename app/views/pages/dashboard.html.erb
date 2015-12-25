@@ -1,0 +1,23 @@
+
+<div class="row">
+	<h1 class="text-center">Dashboard</h1>
+	
+	<div class="col-md-4">
+		<h3 class="text-center">
+		    Listings <%= link_to "New Listing", new_listing_path, class: "btn btn-primary btn-sm" %>
+		</h3>  
+
+		<%= render 'listings' %>
+
+	</div>
+
+	<div class="col-md-4">
+		<h3 class="text-center">Your Trips</h3>
+			<%= render partial: 'purchased', :locals => {purchased: @purchased } %>
+	</div>
+
+	<div class="col-md-4">
+		<h3 class="text-center">Your Reservations</h3>
+				<%= render partial: 'sales', :locals => {sales: @sales } %>
+	</div>
+</div>

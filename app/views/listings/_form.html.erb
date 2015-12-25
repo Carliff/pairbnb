@@ -1,0 +1,64 @@
+<%= form_for @listing, html: {class: "pure-form"} do |f| %>
+  
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field text-center">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field text-center">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, required: true %>
+  </div>
+  
+  <div class="field text-center">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, required: true %>
+  </div>
+
+  <div class="field text-center">
+    <%= f.label :price %><br>
+    <%= f.number_field :price, required: true %><br>
+  </div>
+
+  <div class="field text-center">
+    <%= f.label "Guests Allowed" %><br>
+    <%= f.number_field :guest, required: true %><br>
+  </div>
+
+  <div class="image">
+    <div align="center">
+      <%= f.label "Image" %><br>
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+
+  <div class="checkbox text-center">
+      <p><%= f.check_box :availability, required: false, label: false %> Availability </p>
+  </div>  
+
+  <div class="checkbox text-center">
+    <p><%= f.check_box :smoking %> Smoking Allowed </p>
+  </div>
+
+  <div class="checkbox text-center">
+    <p><%= f.check_box :pets %> Pets Allowed </p>
+  </div>
+
+
+  <div class="actions text-center">
+    <%= f.submit class: "btn btn-primary btn-lg" %>
+  </div>
+<% end %>

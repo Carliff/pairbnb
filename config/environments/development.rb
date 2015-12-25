@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  #Configure the mailer to create full URLs in emails:
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -38,4 +41,14 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch("SMTP_ADDRESS"),
+    authentication: :plain,
+    domain: ENV.fetch("SMTP_DOMAIN"),
+    enable_starttls_auto: true,
+    password: ENV.fetch("SMTP_PASSWORD"),
+    port: "587",
+    user_name: ENV.fetch("SMTP_USERNAME")
+  }
+  config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 end

@@ -1,0 +1,35 @@
+<h1>Search Result</h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+
+<% if @search.search_listings.empty? %>
+
+  <p>No Records Found</p>
+
+<% else %>
+  
+  <% @search.search_listings.each do |c| %>
+    <br>
+
+    <div class="container">
+    	<div class="row">
+    		
+    		<div class="col-md-6">
+		    	<%= image_tag c.image.url(:original), class: "img-responsive" %>
+		    </div>
+
+		    <div class="col-md-6">
+		     	<h1><%= c.name %></h1>
+		      <p>Price: $<%= c.price %></p>
+		      <p>Category: <%= c.category %></p>
+		      <p>Guests: <%= c.guest %></p>
+		      <p>City: <%= c.city %></p>
+		      <p>Pets: <%= c.pets %></p>
+		      <p>Smoking: <%= c.smoking %></p>
+		     </div>
+	    </div>
+    </div>
+
+  <% end %>
+
+<% end %>
