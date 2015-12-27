@@ -10,8 +10,7 @@ gem 'friendly_id'
 gem 'stripe'
 # Add Amazon gem
 gem 'aws-sdk', '< 2.0 '
-# Add dotenv-rails
-gem 'dotenv-rails', :groups => [:development, :test]
+
 # Add PaperClip
 gem 'paperclip'
 # Add CanCan
@@ -30,8 +29,7 @@ gem 'omniauth-facebook'
 gem 'clearance'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -67,9 +65,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Add dotenv-rails
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -77,4 +78,9 @@ group :development do
 	gem 'binding_of_caller', '~> 0.7.2'
 	# Add Better Errors
 	gem 'better_errors', '~> 2.1', '>= 2.1.1'
+end
+
+group :production do  
+  gem 'rails_12factor'
+  gem 'pg'
 end
