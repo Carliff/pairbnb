@@ -12,9 +12,16 @@ class TransactionsController< ApplicationController
 
 		sale.reservation_id = listing.reservations.last.id #.update
 
+		@host = listing.user.email
+		@customer = current_user.email
+		@eservation_id = listing.reservations.last.guid
+
 		if sale.finished?
 
 			sale.update(guid: listing.reservations.last.guid)
+
+			ReservationMailer.booking_email(@customer, @host, @reservation_id).deliver_now
+
 			redirect_to pickup_url(guid: sale.guid)
 		else
 			redirect_to listing_path(listing), notice: @error 
